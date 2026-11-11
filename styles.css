@@ -1,54 +1,114 @@
-/* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+/* 1. Use a more-intuitive box-sizing model and fonts*/
+
+@font-face {
+    font-family: 'Figtree';
+    src: url('./assets/fonts/static/Figtree-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Figtree';
+    src: url('./assets/fonts/static/Figtree-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-  }
-  
-  /* 2. Remove default margin */
-  *:not(dialog) {
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
     margin: 0;
-  }
-  
-  /* 3. Enable keyword animations */
-  @media (prefers-reduced-motion: no-preference) {
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
     html {
-      interpolate-size: allow-keywords;
+        interpolate-size: allow-keywords;
     }
-  }
-  
-  body {
+}
+
+body {
     /* 4. Increase line-height */
     line-height: 1.5;
     /* 5. Improve text rendering */
     -webkit-font-smoothing: antialiased;
-  }
-  
-  /* 6. Improve media defaults */
-  img, picture, video, canvas, svg {
+    font-family: var(--ff-figtree);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-tp-1);
+    color: var(--clr-gray-950);
+    background-color: var(--clr-white);
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
     display: block;
     max-width: 100%;
-  }
-  
-  /* 7. Inherit fonts for form controls */
-  input, button, textarea, select {
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
     font: inherit;
-  }
-  
-  /* 8. Avoid text overflows */
-  p, h1, h2, h3, h4, h5, h6 {
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     overflow-wrap: break-word;
-  }
-  
-  /* 9. Improve line wrapping */
-  p {
+}
+
+/* 9. Improve line wrapping */
+p {
     text-wrap: pretty;
-  }
-  h1, h2, h3, h4, h5, h6 {
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     text-wrap: balance;
-  }
-  
-  /*
+}
+
+/*
     10. Create a root stacking context
   */
-  #root, #__next {
+#root,
+#__next {
     isolation: isolate;
-  }
+
+
+}
+
+:root {
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-yellow: hsl(47, 88%, 63%);
+    --clr-gray-500: hsl(0, 0%, 42%);
+    --clr-gray-950: hsl(0, 0%, 7%);
+    --ff-figtree: 'Figtree', sans-serif;
+    --fw-medium: 500;
+    --fw-extra-bold: 800;
+    --fs-tp-1: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); 
+    --fs-tp-2:clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+    --fs-tp-3:clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem);
+    --fs-tp-4:0.875rem;
+}
